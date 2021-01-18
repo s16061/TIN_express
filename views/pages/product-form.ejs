@@ -1,0 +1,32 @@
+<%- include('../fragments/header.ejs') %>
+
+    <main>
+        <h2>Dodawanie nowego produktu</h2>
+
+        <form class="form" onsubmit="return validateForm();" novalidate onsubmit="return validateForm();">
+         
+
+            
+                <label for="productName">Nazwa produktu<abbr title="required" aria-label="required">*</abbr></label>
+                <input type="text" name="productName" id="productName" placeholder="2-60 znaków" />
+                <span id="errorProductName" class="errors-text"></span>
+
+            
+                <label for="description">Opis produktu</label>
+                <input type="text" name="description" id="description">
+                <span id="errorDescription" class="errors-text"></span>
+
+            
+                <label for="price">Cena produktu<abbr title="required" aria-label="required">*</abbr></label>
+                <input type="number" name="price" id="price">
+                <span id="errorPrice" class="errors-text"></span>
+
+            
+                <input type="submit" value="Dodaj" class="button-add"/>
+                <p id="errorsSummary" class="errors-text"></p>
+                
+                <a href="/products/">Anuluj</a>
+        </form>
+    </main>
+
+    <%- include('../fragments/footer.ejs') %>

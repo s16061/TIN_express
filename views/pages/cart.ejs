@@ -1,0 +1,35 @@
+<%- include('../fragments/header.ejs') %>
+
+    <main>
+        <h2>Mój koszyk</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nazwa</th>
+                    <th>Opis</th>
+                    <th>Cena</th>
+                    <th>Ilość</th>
+                    <th>Akcje</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Konto e-mail</td>
+                    <td>Standardowe konto email</td>
+                    <td>3 PLN</td>
+                    <td>
+                        <input type="number" name="quantity" id="quantity">
+                    </td>
+                    <td>
+                    <ul>
+                            <a href="" class="list-actions-button-delete">Usuń</a>
+                    </ul>
+                    </td>
+                </tr>
+                </tbody>
+        </table>
+                
+    </main>
+
+    <%- include('../fragments/footer.ejs') %>
