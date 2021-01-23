@@ -34,6 +34,9 @@ app.use('/api/products', productApiRoute);
 
 
 
+const sequelizeInit = require('./config/sequelize/init');
+sequelizeInit();
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

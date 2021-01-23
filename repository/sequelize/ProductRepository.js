@@ -1,3 +1,4 @@
+const Sequelize = require('sequelize');
 const Product = require("../../model/sequelize/Product");
 
 exports.getProducts = () => {

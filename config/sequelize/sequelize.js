@@ -1,11 +1,12 @@
 const Sequelize = require('sequelize');
 
-const sequelize = new Sequelize('16061-tin', 'root', 'root', {
+const sequelize = new Sequelize('s16061-tin', 'root', 'root', {
     dialect: 'mysql',
     host: 'localhost',
     define: {
         timestamps: false,
-        freezeTableName: true
+        freezeTableName: true,
+        underscored: false
       }
 });
 

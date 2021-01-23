@@ -1,3 +1,14 @@
+const CartRepository = require('../repository/sequelize/CartRepository');
+
+
+
+
 exports.showCartList = (req, res, next) => {
-    res.render('pages/cart', { navLocation: 'cart' });
+    CartRepository.getProductList()
+        .then(carts => {
+            res.render('pages/cart', {
+                carts: carts,
+                navLocation: 'cart'
+            });
+        });
 }

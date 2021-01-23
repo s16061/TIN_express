@@ -110,6 +110,7 @@ main h2 {
 }
 
 .list-actions-button-details,
+.list-actions-button-order,
 .list-actions-button-edit,
 .list-actions-button-delete {
     display: inline-block;
@@ -118,6 +119,7 @@ main h2 {
 }
 
 .list-actions-button-details,
+.list-actions-button-order,
 .list-actions-button-edit,
 .list-actions-button-delete {
     border: none;
@@ -138,6 +140,14 @@ main h2 {
 }
 .list-actions-button-details:hover {
     background-color: #3498db;
+}
+
+.list-actions-button-order{
+    background-color: green;
+}
+
+.list-actions-button-order:hover{
+    background-color: greenyellow;
 }
 
 .list-actions-button-edit {

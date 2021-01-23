@@ -23,3 +23,32 @@ exports.showAddProductForm = (req, res, next) => {
         navLocation: 'product'
     });
 }
+
+exports.showEditProductForm = (req, res, next) => {
+    const productID = req.params.productID;
+    ProductRepository.getProductById(productID)
+        .then(product => {
+            res.render('pages/product-form', {
+                product: product,
+                formMode: 'edit',
+                pageTitle: 'Edycja produktu',
+                btnLabel: 'Edytuj produkt',
+                formAction: '/products/edit',
+                navLocation: 'product'
+            });
+        });
+};
+
+exports.showProductDetails = (req, res, next) => {
+    const productID = req.params.productID;
+    ProductRepository.getProductById(productID)
+        .then(product => {
+            res.render('pages/product-form', {
+                product: product,
+                formMode: 'showDetails',
+                pageTitle: 'Szczegóły produktu',
+                formAction: '',
+                navLocation: 'product'
+            });
+        });
+}

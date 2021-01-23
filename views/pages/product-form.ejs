@@ -1,31 +1,39 @@
 <%- include('../fragments/header.ejs') %>
 
     <main>
-        <h2>Dodawanie nowego produktu</h2>
+        <script type="application/javascript" src="public/js/validationProductForm.js"></script>
+        <h2><%= pageTitle %></h2>
+        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+                  <input type="hidden" name="id" value="<%= product.id %>" />
 
-        <form class="form" onsubmit="return validateForm();" novalidate onsubmit="return validateForm();">
-         
 
             
                 <label for="productName">Nazwa produktu<abbr title="required" aria-label="required">*</abbr></label>
-                <input type="text" name="productName" id="productName" placeholder="2-60 znaków" />
+                <input type="text" name="name" id="name" placeholder="2-60 znaków" value="<%= product.name %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
                 <span id="errorProductName" class="errors-text"></span>
-
-            
-                <label for="description">Opis produktu</label>
-                <input type="text" name="description" id="description">
-                <span id="errorDescription" class="errors-text"></span>
-
             
                 <label for="price">Cena produktu<abbr title="required" aria-label="required">*</abbr></label>
-                <input type="number" name="price" id="price">
+                <input type="text" name="price" id="price" value="<%= product.price %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
                 <span id="errorPrice" class="errors-text"></span>
 
-            
-                <input type="submit" value="Dodaj" class="button-add"/>
-                <p id="errorsSummary" class="errors-text"></p>
-                
-                <a href="/products/">Anuluj</a>
+                <% if (formMode == 'showDetails') { %>
+                    <div class="section-buttons">
+                        <a href="/products/edit/<%= product.id %>" class="button-edit">Edytuj</a>
+                    </div>
+                    <% } %>
+
+                    <div class="form-buttons">
+                        <p id="errorsSummary" class="errors-text"></p>
+                        <% if (formMode != 'showDetails') { %>
+                            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                            <a class="form-button-cancel" href="/products">Anuluj</a>
+                        <% } else { %>
+                            <a class="form-button-cancel" href="/products">Powrót</a>
+                        <% } %>
+                    </div>
+                    
         </form>
     </main>
 

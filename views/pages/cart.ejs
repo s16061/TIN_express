@@ -6,7 +6,6 @@
             <thead>
                 <tr>
                     <th>Nazwa</th>
-                    <th>Opis</th>
                     <th>Cena</th>
                     <th>Ilość</th>
                     <th>Akcje</th>
@@ -14,19 +13,22 @@
             </thead>
 
             <tbody>
-                <tr>
-                    <td>Konto e-mail</td>
-                    <td>Standardowe konto email</td>
-                    <td>3 PLN</td>
-                    <td>
-                        <input type="number" name="quantity" id="quantity">
-                    </td>
-                    <td>
-                    <ul>
+                <% for (let cart of carts) { %>
+                <% for (let product of product.products) { %>
+                    <tr>
+                        <td><%= product.name %></td>
+                        <td><%= product.price %></td>
+                        <td><%= cart.quantity %></td>
+                        <td>
+                            <ul class="list-actions">
+                            <a href="" class="list-actions-button-order">Zamów</a>
                             <a href="" class="list-actions-button-delete">Usuń</a>
                     </ul>
                     </td>
                 </tr>
+                <% } %>
+
+                <% } %>
                 </tbody>
         </table>
                 
