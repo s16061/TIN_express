@@ -14,11 +14,11 @@
 
             <tbody>
                 <% for (let cart of carts) { %>
-                <% for (let product of product.products) { %>
                     <tr>
-                        <td><%= product.name %></td>
-                        <td><%= product.price %></td>
-                        <td><%= cart.quantity %></td>
+                        
+                        <td><%= cart.Quantity %></td>
+                        <td><%= cart.Quantity %></td>
+                        <td><%= cart.Quantity %></td>
                         <td>
                             <ul class="list-actions">
                             <a href="" class="list-actions-button-order">Zamów</a>
@@ -26,7 +26,6 @@
                     </ul>
                     </td>
                 </tr>
-                <% } %>
 
                 <% } %>
                 </tbody>

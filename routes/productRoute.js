@@ -5,8 +5,11 @@ const productControler = require('../controllers/productController');
 
 router.get('/', productControler.showProductList);
 router.get('/add', productControler.showAddProductForm);
-router.get('/edit/:product.id', productControler.showEditProductForm);
-router.get('/details/:product.id', productControler.showProductDetails);
+router.post('/add', productControler.createProduct);
+router.post('/edit', productControler.updateProduct);
+router.get('/delete/:productID', productControler.deleteProduct);
+router.get('/edit/:productID', productControler.showEditProductForm);
+router.get('/details/:productID', productControler.showProductDetails);
 module.exports = router;
 
 

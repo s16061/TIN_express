@@ -17,6 +17,6 @@ module.exports = () => {
     ProductList.belongsTo(Order, {as: 'productlist', foreignKey: {name: 'id', allowNull: false} } );
 
     ProductList.hasMany(Product, {as: 'product', foreignKey: {name: 'id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
-    Product.belongsTo(ProductList, {as: 'product', foreignKey: {name: 'id', allowNull: false} });
+    Product.belongsTo(ProductList, {as: 'product', foreignKey: {name: 'id', allowNull: false, } });
 
 };

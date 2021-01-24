@@ -8,9 +8,9 @@ exports.showAccount = (req, res, next) => {
 exports.showEditAccount = (req, res, next) => {
     const accountID = req.params.accountID;
     AccountRepository.getAccountById(accountID)
-        .then(account => {
-            res.render('pages/myaccount', {
-                account: account,
+        .then(user => {
+            res.render('pages/account/account-form', {
+                user: user,
                 formMode: 'edit',
                 pageTitle: 'Edycja konta',
                 btnLabel: 'Edytuj konto',
