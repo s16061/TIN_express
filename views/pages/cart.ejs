@@ -2,7 +2,7 @@
 
     <main>
         <h2>Mój koszyk</h2>
-        <table>
+        <table class="table-list">
             <thead>
                 <tr>
                     <th>Nazwa</th>
@@ -16,13 +16,13 @@
                 <% for (let cart of carts) { %>
                     <tr>
                         
-                        <td><%= cart.Quantity %></td>
-                        <td><%= cart.Quantity %></td>
+                        <td><%= cart.product.name %></td>
+                        <td><%= cart.product.price %></td>
                         <td><%= cart.Quantity %></td>
                         <td>
                             <ul class="list-actions">
                             <a href="" class="list-actions-button-order">Zamów</a>
-                            <a href="" class="list-actions-button-delete">Usuń</a>
+                            <a href="/cart/delete/<%=cart.id%>" class="list-actions-button-delete">Usuń</a>
                     </ul>
                     </td>
                 </tr>

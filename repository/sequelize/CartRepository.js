@@ -6,7 +6,10 @@ exports.getProductList = () => {
     return ProductList.findAll({include: [
         {
             model: Product,
-            as: 'product'
+            as: 'product',
+            where: {
+                id: Product_Id
+            }
         }]
     });
 };

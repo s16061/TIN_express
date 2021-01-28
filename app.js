@@ -9,6 +9,7 @@ var productRouter = require('./routes/productRoute');
 var cartRouter = require('./routes/cartRoute');
 var accountRouter = require('./routes/accountRoute');
 var productApiRoute = require('./routes/api/ProductApiRoute');
+var authUtils = require('./util/authUtils');
 
 
 
@@ -25,17 +26,32 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+const session = require('express-session');
+app.use(session({
+    secret: 'my_secret_password',
+    resave: false
+}));
+
+app.use((req, res, next) => {
+  const loggedUser = req.session.loggedUser;
+  res.locals.loggedUser = loggedUser;
+  if(!res.locals.loginError) {
+      res.locals.loginError = undefined;
+  }
+  next();
+});
 
 app.use('/', indexRouter);
 app.use('/products', productRouter);
-app.use('/account', accountRouter);
-app.use('/cart', cartRouter);
+app.use('/account', authUtils.permitAuthenticatedUser, accountRouter);
+app.use('/cart', authUtils.permitAuthenticatedUser, cartRouter);
 app.use('/api/products', productApiRoute);
 
 
 
 const sequelizeInit = require('./config/sequelize/init');
 sequelizeInit();
+
 
 
 // catch 404 and forward to error handler

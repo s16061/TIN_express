@@ -1,9 +1,8 @@
-
-const Account = require("../../model/sequelize/User");
+const User = require("../../model/sequelize/User");
 
 
 exports.getAccountById = (accountID) => {
-    return Account.findByPk(accountID);
+    return User.findByPk(accountID);
 };
 
 exports.updateAccount = (accountID, accountData) => {
@@ -11,5 +10,11 @@ exports.updateAccount = (accountID, accountData) => {
     const surname = accountData.surname;
     const phone = accountData.phone;
     const email = accountData.email;
-    return ProductList.update(accountData, {where: {id: accountID }});
+    return User.update(accountData, {where: {id: accountID }});
 };
+
+exports.findByEmail = (email) => {
+    return User.findOne({
+        where: {email: email}
+    });
+}

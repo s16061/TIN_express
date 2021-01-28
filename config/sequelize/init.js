@@ -7,8 +7,8 @@ const Order = require('../../model/sequelize/Order');
 const Payment = require('../../model/sequelize/Payment');
 
 module.exports = () => {
-    Order.hasMany(User, {as: 'user', foreignKey: {name: 'User_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
-    User.belongsTo(Order, {as: 'user', foreignKey: {name: 'User_id', allowNull: false} } );
+    Order.hasMany(User, {as: 'user', foreignKey: {name: 'id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
+    User.belongsTo(Order, {as: 'user', foreignKey: {name: 'id', allowNull: false} } );
 
     Order.hasMany(Payment, {as: 'payment', foreignKey: {name: 'Payment_id', allowNull: false}, constraints: true, onDelete: 'CASCADE'});
     Payment.belongsTo(Order, {as: 'payment', foreignKey: {name: 'Payment_id', allowNull: false} } );

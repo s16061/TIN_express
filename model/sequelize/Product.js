@@ -18,10 +18,11 @@ const Product = sequelize.define('Product', {
         len: {
             args: [2,60],
             msg: "Pole powinno zawierać od 2 do 60 znaków"
-        },
+        }
+    }
 },
 
-   },
+
    price: {
     type: Sequelize.DOUBLE,
     allowNull: false,
@@ -31,6 +32,8 @@ const Product = sequelize.define('Product', {
         }
 }
    }
+
+
 });
 
 

@@ -1,14 +1,16 @@
 const CartRepository = require('../repository/sequelize/CartRepository');
+const ProductRepository = require('../repository/sequelize/ProductRepository');
+
 
 
 
 
 exports.showCartList = (req, res, next) => {
-    let product, carts;
+    let products, carts;
     CartRepository.getProductList()
         .then(product => {
-            product = product;
-            return CartRepository.getProductList();
+            products = product;
+            return ProductRepository.getProducts();
         })
         .then(carts => {
             res.render('pages/cart', {
@@ -18,3 +20,11 @@ exports.showCartList = (req, res, next) => {
             });
         });
 }
+
+exports.deleteProductList = (req, res, next) => {
+    const productListID = req.params.productListID;
+    CartRepository.deleteProductList(productListID)
+    .then( () => {
+        res.redirect('/cart');
+    });
+};

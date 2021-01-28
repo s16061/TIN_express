@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="/css/style.css" />
+    <script type="application/javascript" src="../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../js/validationProductForm.js"></script>
+
+
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>ViShop</title>
+
+    
 </head>
 <body>
     <header>
@@ -16,7 +22,12 @@
         <ul>
             <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
             <li><a href="/products" class="<%= navLocation == 'productlist' ? 'active' : ''%>">Lista produktów</a></li>
+            <% if(loggedUser) { %>
             <li><a href="/cart" class="<%= navLocation == 'cart' ? 'active' : ''%>">Koszyk</a></li>
             <li><a href="/account" class="<%= navLocation == 'account' ? 'active' : ''%>">Moje konto</a></li>
+            <% } %>
+            <% if(!loggedUser) { %>
+            <li><a href="/loginpage" class="<%= navLocation == '' ? 'active' : ''%>">Zaloguj się</a></li>
+            <% } %>
         </ul>
     </nav>

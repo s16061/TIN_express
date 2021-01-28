@@ -5,6 +5,8 @@ exports.showAccount = (req, res, next) => {
     res.render('pages/myaccount', { navLocation: 'account' });
 }
 
+
+
 exports.showEditAccount = (req, res, next) => {
     const accountID = req.params.accountID;
     AccountRepository.getAccountById(accountID)
