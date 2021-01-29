@@ -1,0 +1,47 @@
+{
+	"main-page": {
+		"content": "Main page"
+	},
+	"nav": {
+		"main-page": "Main page",
+		"productlist": "Product list",
+		"cart": "Cart",
+		"account": "My account"
+	},
+    "list": {
+       "actions": {
+          "title": "Action",
+          "details": "Details",
+          "edit": "Edit",
+          "delete": "Delete"
+       }
+    },
+   "form": {
+      "actions": {
+         "return": "Return",
+         "edit": "Edit",
+         "cancel": "Cancel"
+      }
+   },
+	"emp": {
+		"fields": {
+			"firstName": "Name",
+			"lastName": "Surname",
+			"email": "Email"
+		},
+		"list": {
+			"title": "Product",
+			"addNew": "Add new product",
+			"noData": "No products",
+			"pageTitle": "List of products"
+		},
+			"edit": {
+				"pageTitle": "Edit product",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Operation accepted",
+					"text": "Product updated"
+				}
+			}
+		}
+	}

@@ -1,0 +1,47 @@
+{
+	"main-page": {
+		"content": "Strona główna"
+	},
+	"nav": {
+		"main-page": "Strona główna",
+		"productlist": "Lista produktów",
+		"cart": "Koszyk",
+		"account": "Moje Konto"
+	},
+    "list": {
+       "actions": {
+          "title": "Akcje",
+          "details": "Szczegóły",
+          "edit": "Edytuj",
+          "delete": "Usuń"
+       }
+    },
+   "form": {
+      "actions": {
+         "return": "Powrót",
+         "edit": "Edytuj",
+         "cancel": "Anuluj"
+      }
+   },
+	"emp": {
+		"fields": {
+			"firstName": "Imię",
+			"lastName": "Nazwisko",
+			"email": "Email"
+		},
+		"list": {
+			"title": "Produktu",
+			"addNew": "Dodaj nowy produkt",
+			"noData": "Brak produktów",
+			"pageTitle": "Lista produktów"
+		},
+			"edit": {
+				"pageTitle": "Edycja produktu",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano produkt"
+				}
+			}
+		}
+	}
