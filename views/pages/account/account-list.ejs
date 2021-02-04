@@ -1,4 +1,4 @@
-<%- include('../fragments/header.ejs') %>
+<%- include('../../fragments/header.ejs') %>
 
     <main>
         <h2>Lista produktów</h2>
@@ -18,24 +18,17 @@
                     <td><%= product.price %></td>
                     <td>
                         <ul class="list-actions">
-                            <li><a href="/products/details/<%=product.Product_id%>" class="list-actions-button-details">Szczegóły</a></li>
-                            <% if(loggedUser) { %>
-                            <li><a href="/cart/add/<%=product.Product_id%>" class="list-actions-button-order">Do koszyka</a></li>
-                            <li><a href="/products/edit/<%=product.Product_id%>" class="list-actions-button-edit">Edytuj</a></li>
-                            <li><a href="/products/delete/<%=product.Product_id%>" class="list-actions-button-delete">Usuń</a></li>
-                            <% } %>
-
+                            <li><a href="/cart/add/<%=product.id%>" class="list-actions-button-order">Do koszyka</a></li>
+                            <li><a href="/products/details/<%=product.id%>" class="list-actions-button-details">Szczegóły</a></li>
+                            <li><a href="/products/edit/<%=product.id%>" class="list-actions-button-edit">Edytuj</a></li>
+                            <li><a href="/products/delete/<%=product.id%>" class="list-actions-button-delete">Usuń</a></li>
                         </ul>
                     </td>
                 </tr>
             <% } %>
         </tbody>
     </table>
-    <% if(loggedUser) { %>
-
         <p><a href="/products/add">Dodaj nowy produkt</a></p>
-        <% } %>
-
     </main>
 
-    <%- include('../fragments/footer.ejs') %>
+    <%- include('../../fragments/footer.ejs') %>

@@ -1,0 +1,25 @@
+<%- include('../../fragments/header.ejs') %>
+
+    <main>
+        <h2><%= pageTitle %></h2>
+        <form class="form" method="post" action="<%=formAction%>">
+                  <input type="hidden" name="id" value="<%=cart.product.Product_id %>" />
+
+
+              <label for="name">Nazwa produktu</label>
+                <input type="text" name="name" id="name" value="<%=cart.product.name%>"/>
+                <label for="price">Cena produktu</label>
+                <input type="number" name="price" id="price" value="<%=cart.product.price%>"/>
+              
+                <label for="quantity">Ilość</label>
+                
+  
+                
+                <div class="form-buttons">
+                        <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                </div>
+             
+        </form>
+    </main>
+
+    <%- include('../../fragments/footer.ejs') %>

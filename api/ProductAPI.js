@@ -1,4 +1,6 @@
 const ProductRepository = require('../repository/sequelize/ProductRepository');
+const CartRepository = require('../repository/sequelize/CartRepository');
+
 
 exports.getProducts = (req, res, next) => {
     ProductRepository.getProducts()
@@ -10,6 +12,28 @@ exports.getProducts = (req, res, next) => {
         });
 };
 
+exports.showCartList = (req, res, next) => {
+    CartRepository.getProductList()
+    .then(productlist => {
+        res.status(200).json(productlist);
+    })
+    .catch(err => {
+       console.log(err);
+    });
+};
+
+
+
+exports.addProductList = (req, res, next) => {
+    const productData = { ...req.body };
+    CartRepository.addProductList(productData)
+        .then( result => {
+            res.status(200).json(productlist);
+        })  .catch(err => {
+            console.log(err);
+         });
+     };
+     
 exports.getProductByID = (req, res, next) => {
     const productID = req.params.productID;
     ProductRepository.getProductById(productID)

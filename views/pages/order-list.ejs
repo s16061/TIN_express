@@ -1,0 +1,32 @@
+<%- include('../fragments/header.ejs') %>
+
+    <main>
+        <h2>Lista zamówień</h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th>User_id</th>
+                    <th>productlist_id</th>
+                    <th>payment_id</th>
+                    <th>price</th>
+                </tr>
+            </thead>
+        
+        <tbody>
+            <% for (let order of orders) { %>
+                
+                <tr>
+                    
+                    <td><%= order.User_id %></td>
+                    <td><%= order.ProductList_id %></td>
+                    <td><%= order.Payment_id %></td>
+                    <td><%= order.Price %></td>
+
+                </tr>
+                <% } %>
+
+        </tbody>
+    </table>
+    </main>
+
+    <%- include('../fragments/footer.ejs') %>

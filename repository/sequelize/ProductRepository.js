@@ -1,9 +1,19 @@
 const Sequelize = require('sequelize');
 const Product = require("../../model/sequelize/Product");
+const ProductList = require('../../model/sequelize/ProductList');
+
 
 exports.getProducts = () => {
-    return Product.findAll();
-};
+    return Product.findAll({include: [
+        {
+            model: ProductList,
+            as: 'productlist',
+        }]
+});
+}
+
+
+
 
 exports.getProductById = (productID) => {
     return Product.findByPk(productID);
@@ -26,7 +36,19 @@ exports.updateProduct = (productID, productData) => {
 
 exports.deleteProduct = (productID) => {
     return Product.destroy({
-        where: { id: productID }
+        where: { Product_id: productID }
     });
 
 }; 
+
+exports.getProductList = () => {
+    return Product.findAll({include: [
+        {
+            model: ProductList,
+            as: 'productlist',
+
+
+        }]
+        
+    });
+};

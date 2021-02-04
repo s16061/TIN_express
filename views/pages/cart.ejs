@@ -9,28 +9,36 @@
                     <th>Cena</th>
                     <th>Ilość</th>
                     <th>Akcje</th>
+                    
                 </tr>
             </thead>
-
+       
             <tbody>
+                
                 <% for (let cart of carts) { %>
+                    
                     <tr>
                         
-                        <td><%= cart.Quantity %></td>
-                        <td><%= cart.Quantity %></td>
-                        <td><%= cart.Quantity %></td>
+                        <td><%= cart.name %></td>
+                        <td><%= cart.price %></td>
+                        <td><%= cart.productlist.Quantity %></td>
+
+
                         <td>
                             <ul class="list-actions">
-                            <a href="" class="list-actions-button-order">Zamów</a>
-                            <a href="/cart/delete/<%=cart.id%>" class="list-actions-button-delete">Usuń</a>
-                    </ul>
+                            <a href="/cart/delete/<%=cart.productlist.id%>" class="list-actions-button-delete">Usuń</a>
+                        </ul>
                     </td>
+                    <% } %>
+               
                 </tr>
+               
 
-                <% } %>
+
                 </tbody>
         </table>
-                
+        <a href="" class="list-actions-button-order">Zamów</a>
+
     </main>
 
     <%- include('../fragments/footer.ejs') %>

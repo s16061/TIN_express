@@ -10,6 +10,7 @@ var cartRouter = require('./routes/cartRoute');
 var accountRouter = require('./routes/accountRoute');
 var productApiRoute = require('./routes/api/ProductApiRoute');
 var authUtils = require('./util/authUtils');
+var orderRouter = require('./routes/orderRoute');
 
 
 
@@ -55,7 +56,9 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/products', productRouter);
 app.use('/account', authUtils.permitAuthenticatedUser, accountRouter);
-app.use('/cart', authUtils.permitAuthenticatedUser, cartRouter);
+app.use('/cart',  authUtils.permitAuthenticatedUser, cartRouter);
+app.use('/orders', authUtils.permitAuthenticatedUser, orderRouter);
+
 app.use('/api/products', productApiRoute);
 
 

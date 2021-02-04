@@ -199,7 +199,7 @@ main h2 {
 }
 
 .form-buttons {
-    grid-column-end: -1;
+    grid-column-end: -15;
 }
 
 .errors-text {

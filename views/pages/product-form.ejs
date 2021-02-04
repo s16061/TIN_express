@@ -3,8 +3,8 @@
     <main>
         <h2><%= pageTitle %></h2>
         
-        <form class="form" novalidate onsubmit="return validateForm();" method="post" action="<%=formAction%>" >
-                  <input type="hidden" name="id" value="<%= product.id %>" />
+        <form class="form" novalidate  method="post" action="<%=formAction%>" >
+                  <input type="hidden" name="id" value="<%= product.Product_id %>" />
 
 
             
@@ -20,8 +20,7 @@
             
                 <label for="price">Cena produktu<abbr title="required" aria-label="required">*</abbr></label>
                 <input class="<%= validationErrors.find(e => e.path.includes('price')) ? 'error-input' : '' %>"
-                type="number" name="price" id="priceID" value="<%= product.price %>"
-                
+                type="number" name="price" id="priceID" value="<%= product.price %>" 
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
                 <span id="errorPrice" class="errors-text">
                     <% if (validationErrors.find(e => e.path.includes('price'))) { %>
@@ -29,10 +28,12 @@
                     <% } %>
                 </span>
 
+                <% if(loggedUser) { %>
                 <% if (formMode == 'showDetails') { %>
                     <div class="section-buttons">
-                        <a href="/products/edit/<%=product.id%>" class="button-edit">Edytuj</a>
+                        <a href="/products/edit/<%=product.Product_id%>" class="button-edit">Edytuj</a>
                     </div>
+                    <% } %>
                     <% } %>
 
                     <div class="form-buttons">

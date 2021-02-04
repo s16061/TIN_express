@@ -8,9 +8,10 @@ const ProductList = sequelize.define('ProductList', {
        allowNull: false,
        primaryKey: true,
    },
-   Product_Id: {
+   Product_id: {
        type: Sequelize.INTEGER,
-       allowNull: false
+       allowNull: false,
+       foreignKey: true
    },
    Quantity: {
     type: Sequelize.INTEGER,

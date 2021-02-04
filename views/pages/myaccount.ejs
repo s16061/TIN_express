@@ -2,30 +2,29 @@
 
     <main>
         <h2>Moje konto</h2>
-        <table>
+        <table class="table-list">
             <thead>
                 <tr>
                     <th>Imie</th>
                     <th>Nazwisko</th>
                     <th>e-mail</th>
+                    <th>Akcje</th>
                 </tr>
             </thead>
         
         <tbody>
-            <tr>
-                <td>Jan</td>
-                <td>Kowalski</td>
-                <td>jan.kowalski@kowalskicorporation.eu</td>
-                <td>
-                <ul>
-                     <a href="/account/edit/" class="list-actions-button-edit">Edytuj</a>
+            <% for (let user of users) { %>
+                <tr>
+                    <td><%= user.Name %></td>
+                    <td><%= user.Surname %></td>
+                    <td><%= user.email %></td>
+                    <td>
+                <ul class="list-actions">
+                     <a href="/account/edit/<%=user.id%>" class="list-actions-button-edit">Edytuj</a>
                 </ul>
                 </td>
             </tr>
-
-
-            
-
+            <% } %>
         </tbody>
         </table>
     </main>

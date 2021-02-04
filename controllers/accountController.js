@@ -2,10 +2,24 @@ const AccountRepository = require('../repository/sequelize/AccountRepository');
 
 
 exports.showAccount = (req, res, next) => {
-    res.render('pages/myaccount', { navLocation: 'account' });
-}
+    AccountRepository.getAccounts()
+    .then(users => {
+    res.render('pages/myaccount', { 
+        users: users,
+        navLocation: 'user'
+    });
+    console.log(data.get({ plain: true }));
+})
+};
 
-
+exports.updateAccount = (req, res, next) => {
+    const accountID = req.body.id;
+    const accountData = { ...req.body };
+    AccountRepository.updateAccount(accountID, accountData)
+    .then( result => {
+        res.redirect('/account');
+    });
+};
 
 exports.showEditAccount = (req, res, next) => {
     const accountID = req.params.accountID;
@@ -17,7 +31,7 @@ exports.showEditAccount = (req, res, next) => {
                 pageTitle: 'Edycja konta',
                 btnLabel: 'Edytuj konto',
                 formAction: '/account/edit',
-                navLocation: 'account'
+                navLocation: 'user'
             });
         });
 };

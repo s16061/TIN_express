@@ -5,10 +5,13 @@ exports.getAccountById = (accountID) => {
     return User.findByPk(accountID);
 };
 
+exports.getAccounts = () => {
+    return User.findAll();
+};
+
 exports.updateAccount = (accountID, accountData) => {
-    const name = accountData.name;
-    const surname = accountData.surname;
-    const phone = accountData.phone;
+    const name = accountData.Name;
+    const surname = accountData.Surname;
     const email = accountData.email;
     return User.update(accountData, {where: {id: accountID }});
 };

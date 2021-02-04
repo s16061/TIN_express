@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const sequelize = require('../../config/sequelize/sequelize');
 
 const Product = sequelize.define('Product', {
-   id: {
+    Product_id: {
        type: Sequelize.INTEGER,
        autoIncrement: true,
        allowNull: false,

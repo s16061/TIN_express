@@ -2,22 +2,29 @@
 
     <main>
         <h2><%= pageTitle %></h2>
-        <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
-                  <input type="hidden" name="id" value="<%= user.id %>" />
+        <form class="form" method="post" action="<%=formAction%>">
+                  <input type="hidden" name="id" value="<%=user.id %>" />
 
 
             
                 <label for="name">Imie</label>
-                <input type="text" name="name" id="name" value="<%= user.name %>"/>
+                <input type="text" name="Name" id="Name" value="<%=user.Name%>"/>
                 <label for="surname">Nazwisko</label>
-                <input type="text" name="surname" id="surname" value="<%= user.surname %>"/>
+                <input type="text" name="Surname" id="Surname" value="<%=user.Surname%>"/>
+                <label for="surname">Telefon</label>
+                <input type="number" name="phone" id="phone" value="<%=user.phone%>"/>
                 <label for="email">e-mail</label>
-                <input type="text" name="email" id="email" value="<%= user.email %>"/>
+                <input type="text" name="email" id="email" value="<%=user.email%>"/>
                 
+                <div class="form-buttons">
+                   
+                        <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+   
+                </div>
             
             
                 
-                    
+                
         </form>
     </main>
 

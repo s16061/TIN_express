@@ -15,7 +15,7 @@ exports.showProductList = (req, res, next) => {
 
 exports.showAddProductForm = (req, res, next) => {
     res.render('pages/product-form', {
-    product: {},
+        product: {},
         pageTitle: 'Dodawanie nowego produktu',
         formMode: 'createNew',
         btnLabel: 'Dodaj produkt',
@@ -50,7 +50,8 @@ exports.showProductDetails = (req, res, next) => {
                 formMode: 'showDetails',
                 pageTitle: 'Szczegóły produktu',
                 formAction: '/products/details',
-                navLocation: 'product'
+                navLocation: 'product',
+                validationErrors: []
             });
         });
 }
@@ -75,7 +76,7 @@ exports.createProduct = (req, res, next) => {
 };
 
 exports.updateProduct = (req, res, next) => {
-    const productID = req.body.id;
+    const productID = req.body.Product_id;
     const ProductData = { ...req.body };
     ProductRepository.updateProduct(productID, ProductData)
     .then( result => {
@@ -90,3 +91,17 @@ exports.deleteProduct = (req, res, next) => {
         res.redirect('/products');
     });
 };
+
+
+exports.showCartList = (req, res, next) => {
+
+    ProductRepository.getProductList() 
+    .then(products => {
+        res.render('pages/cart', {
+            products: products,
+            navLocation: 'product'
+        });
+    })
+
+}
+
