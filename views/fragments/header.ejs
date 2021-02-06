@@ -19,15 +19,20 @@
     </header>
     <nav>
         <ul>
-            <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>">Strona główna</a></li>
-            <li><a href="/products" class="<%= navLocation == 'productlist' ? 'active' : ''%>">Lista produktów</a></li>
+            <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>"><%= __('nav.main-page') %></a></li>
+            <li><a href="/products" class="<%= navLocation == 'productlist' ? 'active' : ''%>"><%= __('nav.productlist') %></a></li>
             <% if(loggedUser) { %>
-            <li><a href="/cart" class="<%= navLocation == 'cart' ? 'active' : ''%>">Koszyk</a></li>
-            <li><a href="/account" class="<%= navLocation == 'account' ? 'active' : ''%>">Moje konto</a></li>
-            <li><a href="/orders" class="<%= navLocation == 'order' ? 'active' : ''%>">Moje zamówienia</a></li>
+            <li><a href="/cart" class="<%= navLocation == 'cart' ? 'active' : ''%>"><%= __('nav.cart') %></a></li>
+            <li><a href="/account" class="<%= navLocation == 'account' ? 'active' : ''%>"><%= __('nav.account') %></a></li>
+            <li><a href="/orders" class="<%= navLocation == 'order' ? 'active' : ''%>"><%= __('nav.orders') %></a></li>
+            <li><a href="/logout" class="<%= navLocation == 'logout' ? 'active' : ''%>"><%= __('nav.logout') %></a></li>
+
             <% } %>
             <% if(!loggedUser) { %>
-            <li><a href="/loginpage" class="<%= navLocation == '' ? 'active' : ''%>">Zaloguj się</a></li>
+            <li><a href="/loginpage" class="<%= navLocation == 'login' ? 'active' : ''%>"><%= __('nav.login') %></a></li>
             <% } %>
+            
+            <li><a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : ''%>">PL</a></li>
+            <li><a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : ''%>">EN</a></li>
         </ul>
     </nav>

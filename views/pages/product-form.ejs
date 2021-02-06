@@ -1,14 +1,22 @@
 <%- include('../fragments/header.ejs') %>
 
     <main>
-        <h2><%= pageTitle %></h2>
+        <% if (formMode == 'createNew') { %>
+          <h2><%= __('product.form.add.pageTitle') %></h2>
+          <% } %>
+          <% if (formMode == 'showDetails') { %>
+            <h2><%= __('product.form.details.pageTitle') %></h2>
+            <% } %>
+            <% if (formMode == 'edit') { %>
+                <h2><%= __('product.form.edit.pageTitle') %></h2>
+                <% } %>
         
         <form class="form" novalidate  method="post" action="<%=formAction%>" >
                   <input type="hidden" name="id" value="<%= product.Product_id %>" />
 
 
             
-                <label for="name">Nazwa produktu<abbr title="required" aria-label="required">*</abbr></label>
+                <label for="name"><%= __('product.form.pname') %><abbr title="required" aria-label="required">*</abbr></label>
                 <input class="<%= validationErrors.find(e => e.path.includes('name')) ? 'error-input' : '' %>"
                  type="text" name="name" id="nameID" placeholder="2-60 znaków" value="<%= product.name %>"
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
@@ -18,7 +26,7 @@
                     <% } %>
                 </span>
             
-                <label for="price">Cena produktu<abbr title="required" aria-label="required">*</abbr></label>
+                <label for="price"><%= __('product.form.pprice') %><abbr title="required" aria-label="required">*</abbr></label>
                 <input class="<%= validationErrors.find(e => e.path.includes('price')) ? 'error-input' : '' %>"
                 type="number" name="price" id="priceID" value="<%= product.price %>" 
                 <%= (formMode == 'showDetails') ? 'disabled' : '' %>/>
@@ -29,20 +37,33 @@
                 </span>
 
                 <% if(loggedUser) { %>
+                
                 <% if (formMode == 'showDetails') { %>
                     <div class="section-buttons">
-                        <a href="/products/edit/<%=product.Product_id%>" class="button-edit">Edytuj</a>
+                        <a href="/products/edit/<%=product.Product_id%>" class="list-actions-button-edit"><%= __('form.actions.edit') %></a>
                     </div>
+                    <!-- 
+                    <div>
+                        <div class="form-buttons">
+                    <a href="/products/cart/<%=product.Product_id%>" class="list-actions-button-order">Do Koszyka</a>
+                </div>
+                doesnt work -->
                     <% } %>
+                  
                     <% } %>
 
                     <div class="form-buttons">
                         <p id="errorsSummary" class="errors-text"></p>
                         <% if (formMode != 'showDetails') { %>
-                            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
-                            <a class="form-button-cancel" href="/products">Anuluj</a>
+                            <% if (formMode == 'createNew') { %>
+                            <input class="list-actions-button-order" type="submit" value="<%= __('product.form.add.btnLabel') %>" />
+                            <% } %>
+                            <% if (formMode == 'edit') { %>
+                            <input class="list-actions-button-order" type="submit" value="<%= __('product.form.edit.btnLabel') %>" />
+                            <% } %>
+                            <a class="list-actions-button-delete" href="/products"><%= __('form.actions.return') %></a>
                         <% } else { %>
-                            <a class="form-button-cancel" href="/products">Powrót</a>
+                            <a class="list-actions-button-details" href="/products"><%= __('form.actions.return') %></a>
                         <% } %>
                     </div>
                     

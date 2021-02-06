@@ -20,18 +20,19 @@ exports.getProductById = (productID) => {
 };
 
 
+exports.updateProduct = (productID, productData) => {
+    const name = productData.name;
+    const price = productData.price;
+    return Product.update(productData,
+         {where: {Product_id: productID }});
+};
+
 exports.createProduct = (newProductData) => {
     console.log(JSON.stringify(newProductData));
     return Product.create({
         name: newProductData.name,
         price: newProductData.price   
     });
-};
-
-exports.updateProduct = (productID, productData) => {
-    const name = productData.name;
-    const price = productData.price;
-    return Product.update(productData, {where: {id: productID }});
 };
 
 exports.deleteProduct = (productID) => {
@@ -51,4 +52,22 @@ exports.getProductList = () => {
         }]
         
     });
+};
+
+exports.addProductList2 = (productID) => {
+    console.log(JSON.stringify(productID));
+    return ProductList.create({
+    Quantity: 1,
+    product:{
+    Product_Id: productID,
+    }
+},
+    {
+      include: [  {
+        model: Product,
+        as: 'product',
+        required: true
+
+    }]
+    })
 };

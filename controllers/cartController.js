@@ -39,24 +39,25 @@ exports.addProductList = (req, res, next) => {
 
 exports.addProductList = (req, res, next) => {
     const productID = req.body.Product_id;
+    ProductRepository.getProductById(productID)
     CartRepository.addProductList(productID)
     .then( result => {
         res.redirect('/cart');
     });
 };
 
-
-exports.createFormProductList = (req, res, next) => {
+exports.showProductDetails = (req, res, next) => {
     const productID = req.params.productID;
     ProductRepository.getProductById(productID)
-    .then(cart => {
-        res.render('pages/cart/cart-form', {
-            cart: cart,
-            formMode: 'createNew',
-            pageTitle: 'Dodawanie do koszyka',
-            btnLabel: 'Dodaj do koszyka',
-            formAction: '/cart/add',
-            navLocation: 'cart',
+        .then(cart => {
+            res.render('pages/cart-form', {
+                cart: cart,
+                formMode: 'addCart',
+                pageTitle: 'Dodawanie do koszyka',
+                formAction: '/cart/add',
+                navLocation: 'cart',
+                validationErrors: []
+            });
         });
-    });
-};
+}
+

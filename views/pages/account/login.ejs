@@ -4,15 +4,15 @@
        
 <% if(!loggedUser) { %>
     <div id="login">
-        <h5>Logowanie</h5>
+        <h5><%= __('login.title') %></h5>
         <form method="post" action="/login" novalidate>
-            <label for="loginEmail">Email:</label>
+            <label for="loginEmail"><%= __('login.email') %></label>
             <input type="email" id="loginEmail" name="email">
 
-            <label for="loginPassword">Hasło:</label>
+            <label for="loginPassword"><%= __('login.password') %></label>
             <input type="password" id="loginPassword" name="password">
 
-            <input type="submit" value="Zaloguj się">
+            <input type="submit" value="<%= __('login.login') %>">
             <span id="loginErrors"><%= loginError ? loginError : ''%></span>
         </form>
     </div>

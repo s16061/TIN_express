@@ -1,14 +1,14 @@
 <%- include('../fragments/header.ejs') %>
 
     <main>
-        <h2>Mój koszyk</h2>
+        <h2><%= __('cart.title') %></h2>
         <table class="table-list">
             <thead>
                 <tr>
-                    <th>Nazwa</th>
-                    <th>Cena</th>
-                    <th>Ilość</th>
-                    <th>Akcje</th>
+                    <th><%= __('cart.name') %></th>
+                    <th><%= __('cart.price') %></th>
+                    <th><%= __('cart.quantity') %></th>
+                    <th><%= __('cart.actions') %></th>
                     
                 </tr>
             </thead>
@@ -26,7 +26,7 @@
 
                         <td>
                             <ul class="list-actions">
-                            <a href="/cart/delete/<%=cart.productlist.id%>" class="list-actions-button-delete">Usuń</a>
+                            <a href="/cart/delete/<%=cart.productlist.id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
                         </ul>
                     </td>
                     <% } %>
@@ -37,7 +37,7 @@
 
                 </tbody>
         </table>
-        <a href="" class="list-actions-button-order">Zamów</a>
+        <!-- <a href="" class="list-actions-button-order">Zamów</a> -->
 
     </main>
 

@@ -5,6 +5,8 @@ exports.changeLang = (req, res, next) => {
 
     if(['pl','en'].includes(newLang)) {
         res.cookie('vishop-lang', newLang);
+        i18n.setLocale(newLang);
+
     };
     res.redirect('/');
 }

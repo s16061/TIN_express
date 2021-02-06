@@ -47,7 +47,17 @@ exports.addProductList = (newProductData) => {
 exports.addProductList = (productID) => {
     console.log(JSON.stringify(productID));
     return ProductList.create({
+    Quantity: 1,
+    product:{
     Product_Id: productID,
-    Quantity: 1
-});
+    }
+},
+    {
+      include: [  {
+        model: Product,
+        as: 'product',
+        required: true
+
+    }]
+    })
 };

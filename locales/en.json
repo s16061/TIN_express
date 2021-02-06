@@ -6,42 +6,89 @@
 		"main-page": "Main page",
 		"productlist": "Product list",
 		"cart": "Cart",
-		"account": "My account"
+		"account": "My account",
+		"orders": "My orders",
+		"login": "Log in",
+		"logout": "Log out"
 	},
-    "list": {
-       "actions": {
-          "title": "Action",
-          "details": "Details",
-          "edit": "Edit",
-          "delete": "Delete"
-       }
-    },
-   "form": {
-      "actions": {
-         "return": "Return",
-         "edit": "Edit",
-         "cancel": "Cancel"
-      }
-   },
-	"emp": {
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel"
+		}
+	},
+	"product": {
 		"fields": {
-			"firstName": "Name",
-			"lastName": "Surname",
-			"email": "Email"
+			"name": "Name",
+			"price": "Price"
 		},
 		"list": {
-			"title": "Product",
+			"title": "Products",
 			"addNew": "Add new product",
 			"noData": "No products",
-			"pageTitle": "List of products"
+			"pageTitle": "Product List"
 		},
-			"edit": {
-				"pageTitle": "Edit product",
-				"btnLabel": "Save changes",
+		"form": {
+			"add": {
+				"pageTitle": "Add new product",
+				"btnLabel": "Add",
 				"confirm": {
-					"header": "Operation accepted",
-					"text": "Product updated"
+					"header": "Confirmation",
+					"text": "OK"
 				}
-			}
-		}
+			},
+			"edit": {
+				"pageTitle": "Product edit",
+				"btnLabel": "Save",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "OK"
+				}
+			},
+			"details": {
+				"pageTitle": "Details of product"
+			},
+			"pname": "Product name",
+			"pprice": "Product price"
+		},
+		"title": "Product list"
+	},
+	"order": {
+		"title": "History of orders",
+		"userid": "User ID",
+		"productlistid": "Cart ID",
+		"paymentid": "Payment ID",
+		"price": "Price"
+	},
+	"account": {
+		"title": "My account",
+		"name": "Name",
+		"surname": "Surname",
+		"email": "E-mail",
+		"action": "Actions",
+		"phone": "Phone number",
+		"button": "Save"
+	},
+	"cart": {
+		"title": "Cart",
+		"name": "Product name",
+		"price": "Product price",
+		"quantity": "Quantity",
+		"actions": "Actions"
+	},
+	"login": {
+		"title": "Login",
+		"email": "E-mail",
+		"password": "Password",
+		"login": "Log in"
 	}
+}

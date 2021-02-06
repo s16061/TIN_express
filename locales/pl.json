@@ -3,45 +3,92 @@
 		"content": "Strona główna"
 	},
 	"nav": {
-		"main-page": "Strona główna",
+		"main-page": "Strona glowna",
 		"productlist": "Lista produktów",
 		"cart": "Koszyk",
-		"account": "Moje Konto"
+		"account": "Moje Konto",
+		"orders": "Moje zamowienia",
+		"login": "Zaloguj się",
+		"logout": "Wyloguj"
 	},
-    "list": {
-       "actions": {
-          "title": "Akcje",
-          "details": "Szczegóły",
-          "edit": "Edytuj",
-          "delete": "Usuń"
-       }
-    },
-   "form": {
-      "actions": {
-         "return": "Powrót",
-         "edit": "Edytuj",
-         "cancel": "Anuluj"
-      }
-   },
-	"emp": {
+	"list": {
+		"actions": {
+			"title": "Akcje",
+			"details": "Szczegóły",
+			"edit": "Edytuj",
+			"delete": "Usuń"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Powrót",
+			"edit": "Edytuj",
+			"cancel": "Anuluj"
+		}
+	},
+	"product": {
 		"fields": {
-			"firstName": "Imię",
-			"lastName": "Nazwisko",
-			"email": "Email"
+			"name": "Nazwa",
+			"price": "Cena"
 		},
 		"list": {
-			"title": "Produktu",
+			"title": "Produkty",
 			"addNew": "Dodaj nowy produkt",
-			"noData": "Brak produktów",
+			"noData": "Brak produktów w bazie",
 			"pageTitle": "Lista produktów"
 		},
+		"form": {
+			"add": {
+				"pageTitle": "Dodawanie produktu",
+				"btnLabel": "Dodaj produkt",
+				"confirm": {
+					"header": "Potwierdzenie dodania",
+					"text": "Pomyślnie dodano produkt"
+				}
+			},
 			"edit": {
 				"pageTitle": "Edycja produktu",
 				"btnLabel": "Zapisz zmiany",
 				"confirm": {
-					"header": "Potwierdzenie operacji",
+					"header": "Potwierdzenie edycji",
 					"text": "Pomyślnie zaktualizowano produkt"
 				}
-			}
-		}
+			},
+			"details": {
+				"pageTitle": "Szczegóły produktu"
+			},
+			"pname": "Nazwa produktu",
+			"pprice": "Cena produktu"
+		},
+		"title": "Lista produktów"
+	},
+	"order": {
+		"title": "Historia zamówień",
+		"userid": "ID użytkownika",
+		"productlistid": "ID koszyka",
+		"paymentid": "ID płatności",
+		"price": "Cena"
+	},
+	"account": {
+		"title": "Moje konto",
+		"name": "Imie",
+		"surname": "Nazwisko",
+		"email": "E-mail",
+		"action": "Akcje",
+		"phone": "Numer telefonu",
+		"button": "Zapisz"
+	},
+	"cart": {
+		"title": "Koszyk",
+		"name": "Nazwa produktu",
+		"price": "Cena produktu",
+		"quantity": "Ilość",
+		"actions": "Akcje"
+	},
+	"login": {
+		"title": "Logowanie",
+		"email": "E-mail",
+		"password": "Hasło",
+		"login": "Zaloguj"
 	}
+}

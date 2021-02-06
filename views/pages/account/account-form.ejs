@@ -1,24 +1,24 @@
 <%- include('../../fragments/header.ejs') %>
 
     <main>
-        <h2><%= pageTitle %></h2>
+        <h2><%= __('account.title') %></h2>
         <form class="form" method="post" action="<%=formAction%>">
                   <input type="hidden" name="id" value="<%=user.id %>" />
 
 
             
-                <label for="name">Imie</label>
+                <label for="name"><%= __('account.name') %></label>
                 <input type="text" name="Name" id="Name" value="<%=user.Name%>"/>
-                <label for="surname">Nazwisko</label>
+                <label for="surname"><%= __('account.surname') %></label>
                 <input type="text" name="Surname" id="Surname" value="<%=user.Surname%>"/>
-                <label for="surname">Telefon</label>
+                <label for="surname"><%= __('account.phone') %></label>
                 <input type="number" name="phone" id="phone" value="<%=user.phone%>"/>
-                <label for="email">e-mail</label>
+                <label for="email"><%= __('account.email') %></label>
                 <input type="text" name="email" id="email" value="<%=user.email%>"/>
                 
                 <div class="form-buttons">
                    
-                        <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+                        <input class="list-actions-button-order" type="submit" value="<%= __('account.button') %>" />
    
                 </div>
             

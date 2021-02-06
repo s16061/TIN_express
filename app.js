@@ -24,7 +24,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+//app.use(cookieParser());
 app.use(cookieParser('secret'));
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -33,10 +33,11 @@ i18n.configure({
    locales: ['pl', 'en'], // języki dostępne w aplikacji. Dla każdego z nich należy utworzyć osobny słownik 
    directory: path.join(__dirname, 'locales'), // ścieżka do katalogu, w którym znajdują się słowniki
    objectNotation: true, // umożliwia korzstanie z zagnieżdżonych kluczy w notacji obiektowej
+   defaultLocale: 'pl', 
    cookie: 'vishop-lang', //nazwa cookies, które nasza aplikacja będzie wykorzystywać do przechowania informacji o  języku aktualnie wybranym przez użytkownika
-   
-});
+   register: global     
 
+});
 
 const session = require('express-session');
 app.use(session({
@@ -49,6 +50,16 @@ app.use((req, res, next) => {
   res.locals.loggedUser = loggedUser;
   if(!res.locals.loginError) {
       res.locals.loginError = undefined;
+  }
+  next();
+});
+
+
+
+app.use((req, res, next) => {
+  if(!res.locals.lang) {
+      const currentLang = req.cookies['vishop-lang'];
+      res.locals.lang = currentLang;
   }
   next();
 });

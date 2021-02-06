@@ -1,14 +1,14 @@
 <%- include('../fragments/header.ejs') %>
 
     <main>
-        <h2>Moje konto</h2>
+        <h2><%= __('account.title') %></h2>
         <table class="table-list">
             <thead>
                 <tr>
-                    <th>Imie</th>
-                    <th>Nazwisko</th>
-                    <th>e-mail</th>
-                    <th>Akcje</th>
+                    <th><%= __('account.name') %></th>
+                    <th><%= __('account.surname') %></th>
+                    <th><%= __('account.email') %></th>
+                    <th><%= __('account.action') %></th>
                 </tr>
             </thead>
         
@@ -20,7 +20,7 @@
                     <td><%= user.email %></td>
                     <td>
                 <ul class="list-actions">
-                     <a href="/account/edit/<%=user.id%>" class="list-actions-button-edit">Edytuj</a>
+                     <a href="/account/edit/<%=user.id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
                 </ul>
                 </td>
             </tr>
